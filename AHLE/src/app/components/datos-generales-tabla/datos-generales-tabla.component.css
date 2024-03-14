@@ -1,0 +1,51 @@
+.btn-custom {
+  background-color: #6bcd1a; /* Naranja */
+  color: #ffffff; /* Texto blanco */
+  /* Otros estilos de tu elección */
+}
+
+.title-container {
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 50px; /* Ajusta según sea necesario */
+  padding-bottom: 20px; /* Ajusta según sea necesario */
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.mensaje-notificacion {
+  position: fixed;
+  bottom: 20px; /* Ajusta la posición vertical según sea necesario */
+  right: 20px; /* Ajusta la posición horizontal según sea necesario */
+  background-color: #4CAF50; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 15px; /* Espaciado interno */
+  border-radius: 10px; /* Borde redondeado */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  z-index: 999; /* Asegura que esté por encima de otros elementos */
+  display: none; /* Oculto por defecto */
+  animation: fadeOut 2s ease-in-out; /* Animación de desvanecimiento */
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.imagenF{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  background-image: url('images/descarga.jpg');
+  background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
+  background-position: center;
+  border-radius: 50%; /* Para que la imagen sea circular */
+}
+

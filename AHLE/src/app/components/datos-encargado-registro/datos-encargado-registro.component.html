@@ -1,0 +1,70 @@
+
+<div class="container mt-5">
+  <button id="miBoton" routerLink="/" class="btn btn-secondary btn-lg float-start">Inicio</button>
+
+  <div class="col-lg-6 offset-lg-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <link rel="stylesheet" href="datos-encargado-registro.component.css">
+        <span class="title">{{ title }}</span>
+        <div class="imagen"></div>
+        <form class="mt-3" [formGroup]="datosEncargadoForm" (ngSubmit)="addDatosEncargado()">
+
+          <div class="mb-3">
+            <input type="text" formControlName="Ident" class="form-control form-control-lg" placeholder="ID">
+            <div class="text-danger"
+              *ngIf="datosEncargadoForm.get('Ident')?.hasError('required') && datosEncargadoForm.get('Ident')?.touched">
+              <span>ID es requerido</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" formControlName="nombre" class="form-control form-control-lg" placeholder="Nombre">
+            <div class="text-danger"
+              *ngIf="datosEncargadoForm.get('nombre')?.hasError('required') && datosEncargadoForm.get('nombre')?.touched">
+              <span>Nombre es requerido</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" formControlName="telefono" class="form-control form-control-lg" placeholder="Telefono">
+            <div class="text-danger"
+              *ngIf="datosEncargadoForm.get('telefono')?.hasError('required') && datosEncargadoForm.get('telefono')?.touched">
+              <span>Telefono es requerido</span>
+            </div>
+          </div>
+
+
+
+          <div class="mb-3">
+            <input type="text" formControlName="edad" class="form-control form-control-lg" placeholder="Edad">
+            <div class="text-danger"
+              *ngIf="datosEncargadoForm.get('edad')?.hasError('required') && datosEncargadoForm.get('edad')?.touched">
+              <span>Edad es requerida</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" formControlName="correo" class="form-control form-control-lg" placeholder="Correo">
+            <div class="text-danger"
+              *ngIf="datosEncargadoForm.get('correo')?.hasError('required') && datosEncargadoForm.get('correo')?.touched">
+              <span>Correo es requerido</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="text" formControlName="profesion" class="form-control form-control-lg" placeholder="Profesion">
+            <div class="text-danger"
+              *ngIf="datosEncargadoForm.get('profesion')?.hasError('required') && datosEncargadoForm.get('profesion')?.touched">
+              <span>Profesion es requerida</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button routerLink="/tabla-datosEncargado" class="btn btn-secondary btn-lg float-start">Ver Datos</button>
+            <button type="submit" [disabled]="datosEncargadoForm.invalid"
+              class="btn btn-success btn-lg float-end">Guardar Datos</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

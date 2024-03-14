@@ -1,0 +1,31 @@
+.btn-custom {
+  background-color: #6bcd1a; /* Naranja */
+  color: #ffffff; /* Texto blanco */
+  /* Otros estilos de tu elección */
+}
+
+.title-container {
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 50px; /* Ajusta según sea necesario */
+  padding-bottom: 20px; /* Ajusta según sea necesario */
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.imagenF{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  background-image: url('images/descarga.jpg');
+  background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
+  background-position: center;
+  border-radius: 50%; /* Para que la imagen sea circular */
+}

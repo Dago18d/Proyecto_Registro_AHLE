@@ -1,0 +1,73 @@
+
+<div class="container mt-5">
+  <button id="miBoton" routerLink="/" class="btn btn-secondary btn-lg float-start">Inicio</button>
+
+  <div class="col-lg-6 offset-lg-3">
+    <div class="card">
+
+      <div class="card-body text-center">
+        <link rel="stylesheet" href="registro.component.css">
+        <span class="title">{{ title }}</span>
+        <div class="imagen"></div>
+        <form class="mt-3" [formGroup]="registroForm" (ngSubmit)="addRegistro()">
+
+          <div class="mb-3">
+            <input type="text" formControlName="Ident" class="form-control form-control-lg" placeholder="ID">
+            <div class="text-danger"
+              *ngIf="registroForm.get('Ident')?.hasError('required') && registroForm.get('Ident')?.touched">
+              <span>ID es requerido</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" formControlName="nombre" class="form-control form-control-lg" placeholder="Nombre">
+            <div class="text-danger"
+              *ngIf="registroForm.get('nombre')?.hasError('required') && registroForm.get('nombre')?.touched">
+              <span>Nombre es requerido</span>
+            </div>
+          </div>
+
+
+
+          <div class="mb-3">
+            <input type="text" formControlName="motivo" class="form-control form-control-lg" placeholder="Motivo">
+            <div class="text-danger"
+              *ngIf="registroForm.get('motivo')?.hasError('required') && registroForm.get('motivo')?.touched">
+              <span>Motivo es requerido</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" formControlName="referencias" class="form-control form-control-lg" placeholder="Referencias">
+            <div class="text-danger"
+              *ngIf="registroForm.get('referencias')?.hasError('required') && registroForm.get('referencias')?.touched">
+              <span>Referencias es requerida</span>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" formControlName="encargado" class="form-control form-control-lg" placeholder="Encargado">
+              <div class="text-danger"
+                *ngIf="registroForm.get('encargado')?.hasError('required') && registroForm.get('encargado')?.touched">
+                <span>Encargado es requerido</span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="ubicacion" class="form-control form-control-lg" placeholder="Ubicacion">
+              <div class="text-danger"
+                *ngIf="registroForm.get('ubicacion')?.hasError('required') && registroForm.get('ubicacion')?.touched">
+                <span>Ubicacion es requerida</span>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="mb-3">
+            <button routerLink="/tabla" class="btn btn-success btn-lg float-start">Ver Tabla</button>
+            <button type="submit" [disabled]="registroForm.invalid"
+              class="btn btn-success btn-lg float-end">Guardar Datos</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

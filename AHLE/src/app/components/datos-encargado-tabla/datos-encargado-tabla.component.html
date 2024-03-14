@@ -1,0 +1,43 @@
+<div routerLink="/" class="imagenF"></div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="title">Tabla Datos Encargado</span>
+          <button class="btn btn-primary float-end" (click)="print()">Imprimir</button>
+          <button class="btn btn-custom  float-start" routerLink="/crear-datosEncargado">Crear Datos Clinicos</button>
+          <table *ngIf="tablaDatosEncargado.length > 0" class="table table-striped table-responsive mt-5">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Profesion</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let datosEncargado of tablaDatosEncargado">
+                <td>{{ datosEncargado.Ident }}</td>
+                <td>{{ datosEncargado.nombre }}</td>
+                <td>{{ datosEncargado.telefono }}</td>
+                <td>{{ datosEncargado.edad }}</td>
+                <td>{{ datosEncargado.correo }}</td>
+                <td>{{ datosEncargado.profesion }}</td>
+                <td>
+                  <i [routerLink]="['/edit-datosEncargado', datosEncargado._id]" class="fas fa-edit "></i>
+                  <i (click)="deleteDatosEncargado(datosEncargado._id)" class="fas fa-trash-alt text-danger"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h5 class="no-available" *ngIf="tablaDatosEncargado.length == 0">No hay datos disponibles</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

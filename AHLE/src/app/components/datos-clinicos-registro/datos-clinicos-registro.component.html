@@ -1,0 +1,64 @@
+
+
+<div class="container mt-5">
+  <button id="miBoton" routerLink="/" class="btn btn-secondary btn-lg float-start">Inicio</button>
+
+  <div class="col-lg-6 offset-lg-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <link rel="stylesheet" href="datos-clinicos-registro.component.css">
+        <span class="title">{{ title }}</span>
+        <div class="imagen"></div>
+        <form class="mt-3" [formGroup]="datosClinicosForm" (ngSubmit)="addDatosClinicos()">
+
+          <div class="mb-3">
+            <input type="text" formControlName="Ident" class="form-control form-control-lg" placeholder="ID">
+            <div class="text-danger"
+              *ngIf="datosClinicosForm.get('Ident')?.hasError('required') && datosClinicosForm.get('Ident')?.touched">
+              <span>ID es requerido</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" formControlName="alergias" class="form-control form-control-lg" placeholder="Alergias">
+            <div class="text-danger"
+              *ngIf="datosClinicosForm.get('alergias')?.hasError('required') && datosClinicosForm.get('alergias')?.touched">
+              <span>Alergias es requerido</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" formControlName="padecimiento" class="form-control form-control-lg" placeholder="Padecimientos">
+            <div class="text-danger"
+              *ngIf="datosClinicosForm.get('padecimiento')?.hasError('required') && datosClinicosForm.get('padecimiento')?.touched">
+              <span>Padecimientos es requerido</span>
+            </div>
+          </div>
+
+
+
+          <div class="mb-3">
+            <input type="text" formControlName="medicamentos" class="form-control form-control-lg" placeholder="Medicamentos">
+            <div class="text-danger"
+              *ngIf="datosClinicosForm.get('medicamentos')?.hasError('required') && datosClinicosForm.get('medicamentos')?.touched">
+              <span>Medicamentos es requerido</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" formControlName="contactoEmergencia" class="form-control form-control-lg" placeholder="Contacto Emergencia">
+            <div class="text-danger"
+              *ngIf="datosClinicosForm.get('contactoEmergencia')?.hasError('required') && datosClinicosForm.get('contactoEmergencia')?.touched">
+              <span>Conctacto es requerido</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button routerLink="/tabla-datosClinicos" class="btn btn-secondary btn-lg float-start">Ver Datos</button>
+            <button type="submit" [disabled]="datosClinicosForm.invalid"
+              class="btn btn-success btn-lg float-end">Guardar Datos</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div routerLink="/" class="imagenF"></div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="title">Lista de Datos Generales AHLE</span>
+          <!-- Botón para imprimir -->
+          <button class="btn btn-primary float-end" (click)="print()">Imprimir</button>
+          <button class="btn btn-custom  float-start" routerLink="/crear-datosGenerales">Crear Registro</button>
+          <table id="tabla" *ngIf="tablaDatosGenerales.length > 0" class="table table-striped table-responsive mt-5">
+            <!-- Encabezados de la tabla -->
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Identidad</th>
+                <th scope="col">Fecha Nacimiento </th>
+                <th scope="col">Edad</th>
+                <th scope="col">Talla Ropa</th>
+                <th scope="col">Talla Zapato</th>
+                <th scope="col">Discapacidad</th>
+                <th></th>
+
+
+              </tr>
+            </thead>
+            <!-- Cuerpo de la tabla -->
+            <tbody>
+              <tr *ngFor="let datosGenerales of tablaDatosGenerales">
+                <td>{{ datosGenerales.Ident }}</td>
+                <td>{{ datosGenerales.nombre }}</td>
+                <td>{{ datosGenerales.identidad }}</td>
+                <td>{{ datosGenerales.fechaNacimiento }}</td>
+                <td>{{ datosGenerales.edad }}</td>
+                <td>{{ datosGenerales.tallaRopa}}</td>
+                <td>{{ datosGenerales.tallaZapato }}</td>
+                <td>{{ datosGenerales.discapacidad }}</td>
+                <td>{{ datosGenerales.motivoSalida }}</td>
+                <td>
+                  <!-- Iconos de editar y eliminar -->
+                  <i [routerLink]="['/edit-datosGenerales', datosGenerales._id]" class="fas fa-edit"></i>
+
+                </td>
+                <td>
+                  <span id="mensaje-enviado" style="display: none;" class="mensaje-notificacion">Datos Enviados</span>
+                  <i (click)="enviarDatosExInternos(datosGenerales);mostrarMensajeEnviado(); deleteDatosGenerales(datosGenerales._id);" class="fas fa-share"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- Mensaje si no hay registros -->
+          <h5 class="no-available" *ngIf="tablaDatosGenerales.length == 0">No hay datos disponibles</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+
+<div class="container mt-5">
+  <button id="miBoton" routerLink="/" class="btn btn-secondary btn-lg float-start">Inicio</button>
+
+  <div class="col-lg-6 offset-lg-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <link rel="stylesheet" href="datos-academicos-registro.component.css">
+        <span class="title">{{ title }}</span>
+        <div class="imagen"></div>
+        <form class="mt-3" [formGroup]="DatosAcademicosForm" (ngSubmit)="addDatosAcademicos()">
+
+
+          <div class="mb-3">
+            <input type="text" formControlName="Ident" class="form-control form-control-lg" placeholder="ID">
+            <div class="text-danger"
+              *ngIf="DatosAcademicosForm.get('Ident')?.hasError('required') && DatosAcademicosForm.get('Ident')?.touched">
+              <span>ID es requerido</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" formControlName="nivelEducativo" class="form-control form-control-lg" placeholder="Nivel Educativo">
+            <div class="text-danger"
+              *ngIf="DatosAcademicosForm.get('nivelEducativo')?.hasError('required') && DatosAcademicosForm.get('nivelEducativo')?.touched">
+              <span>El nivel educativo es requerido</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" formControlName="ultimoGradoEscolar" class="form-control form-control-lg" placeholder="Ultimo grado escolar">
+            <div class="text-danger"
+              *ngIf="DatosAcademicosForm.get('ultimoGradoEscolar')?.hasError('required') && DatosAcademicosForm.get('ultimoGradoEscolar')?.touched">
+              <span>El grado escolar es requerido</span>
+            </div>
+          </div>
+
+
+
+          <div class="mb-3">
+            <input type="text" formControlName="institucionAnterior" class="form-control form-control-lg" placeholder="Institucion Anterior">
+            <div class="text-danger"
+              *ngIf="DatosAcademicosForm.get('institucionAnterior')?.hasError('required') && DatosAcademicosForm.get('institucionAnterior')?.touched">
+              <span>Institucion es requerida</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" formControlName="areaInteres" class="form-control form-control-lg" placeholder="Area Interes">
+            <div class="text-danger"
+              *ngIf="DatosAcademicosForm.get('areaInteres')?.hasError('required') && DatosAcademicosForm.get('areaInteres')?.touched">
+              <span>Area de interes es requerida</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button routerLink="/tabla-datosAcademicos" class="btn btn-secondary btn-lg float-start">Ver Datos</button>
+            <button type="submit" [disabled]="DatosAcademicosForm.invalid"
+              class="btn btn-success btn-lg float-end">Guardar Datos</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

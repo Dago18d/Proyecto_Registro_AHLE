@@ -1,0 +1,46 @@
+
+<div class="container mt-5">
+  <button id="miBoton" routerLink="/" class="btn btn-secondary btn-lg float-start">Inicio</button>
+
+  <div class="col-lg-6 offset-lg-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <link rel="stylesheet" href="datos-psi-registro.component.css">
+        <span class="title">{{ title }}</span>
+        <div class="imagen"></div>
+        <form class="mt-3" [formGroup]="datosPsiForm" (ngSubmit)="addDatosPsi()">
+
+          <div class="mb-3">
+            <input type="text" formControlName="Ident" class="form-control form-control-lg" placeholder="ID">
+            <div class="text-danger"
+              *ngIf="datosPsiForm.get('Ident')?.hasError('required') && datosPsiForm.get('Ident')?.touched">
+              <span>ID es requerido</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" formControlName="comportamientos" class="form-control form-control-lg" placeholder="Comportamientos">
+            <div class="text-danger"
+              *ngIf="datosPsiForm.get('comportamientos')?.hasError('required') && datosPsiForm.get('comportamientos')?.touched">
+              <span>El comportamiento es requerido</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <input type="text" formControlName="trastornos" class="form-control form-control-lg" placeholder="Trastorno">
+            <div class="text-danger"
+              *ngIf="datosPsiForm.get('trastornos')?.hasError('required') && datosPsiForm.get('trastornos')?.touched">
+              <span>Trastornos es requerido</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <button routerLink="/tabla-datosPsi" class="btn btn-secondary btn-lg float-start">Ver Datos</button>
+            <button type="submit" [disabled]="datosPsiForm.invalid"
+              class="btn btn-success btn-lg float-end">Guardar Datos</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
